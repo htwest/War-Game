@@ -1,18 +1,27 @@
+import React, { useState } from "react";
+
 import "./styles/App.css";
-import Deck from "./hooks/deck.js";
+import getDecks from "./hooks/getDecks.js";
+
+import PlayerDeck from "./comps/PlayerDeck";
+import ComputerDeck from "./comps/ComputerDeck";
 
 function App() {
-  const deck = new Deck();
-  deck.shuffle();
-  console.log(deck.cards);
+  const [round, setRound] = useState(false);
+
+  const { playerDeck, computerDeck } = getDecks();
+
+  const startGame = () => {
+    setRound(true);
+  };
 
   return (
-    <div className="App">
-      <div className="computer-deck deck">26</div>
-      <div className="computer-card-slot card-slot"></div>
+    <div className="App" onClick={startGame}>
+      <div className="computer-deck deck">{playerDeck.cards.length}</div>
+      {round ? <ComputerDeck cards={computerDeck} /> : null}
       <div className="text">Hello There</div>
-      <div className="player-deck deck">26</div>
-      <div className="player-card-slot card-slot"></div>
+      <div className="player-deck deck">{computerDeck.cards.length}</div>
+      {round ? <PlayerDeck cards={playerDeck} /> : null}
     </div>
   );
 }
