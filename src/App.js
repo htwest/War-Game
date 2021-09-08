@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <div className="computer-deck deck">26</div>
       <div className="computer-card-slot card-slot"></div>
-      <div className="text"></div>
+      <div className="text">Hello There</div>
       <div className="player-deck deck">26</div>
       <div className="player-card-slot card-slot"></div>
     </div>
