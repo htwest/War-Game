@@ -12,7 +12,3 @@ export default function startGame() {
 
   return { playerDeck, computerDeck };
 }
-
-// function cleanBeforeRound() {
-
-// }

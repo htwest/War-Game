@@ -12,16 +12,16 @@ function App() {
   const { playerDeck, computerDeck } = getDecks();
 
   const startGame = () => {
-    setRound(true);
+    setRound(!round);
   };
 
   return (
     <div className="App" onClick={startGame}>
       <div className="computer-deck deck">{playerDeck.cards.length}</div>
-      {round ? <ComputerDeck cards={computerDeck} /> : null}
+      {round ? <ComputerDeck cards={computerDeck.cards} /> : null}
       <div className="text">Hello There</div>
       <div className="player-deck deck">{computerDeck.cards.length}</div>
-      {round ? <PlayerDeck cards={playerDeck} /> : null}
+      {round ? <PlayerDeck cards={playerDeck.cards} /> : null}
     </div>
   );
 }
